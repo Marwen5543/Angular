@@ -1,0 +1,37 @@
+
+
+<div *ngFor="let R of listResidences">
+    <div>id: {{R.id}}</div>
+    <div>name: {{R.name}}</div>
+    <div>adresse: {{R.address}}</div>
+    <div>image: {{R.image}} <img [src]="R.image"></div>
+    <button (click)="showAppartement(R)">Show Appartements</button>
+    <button >Like</button>
+    <button [routerLink]="['/details',R.id]">Details</button>
+    <button routerLink="/addAppartement">Add Appartement</button>
+<app-update-residence (outputResidence)="outputresidence($event)" [residence]="R"></app-update-residence>
+<!-- <button (click)="updateResidence(residence)">Update Residence</button> -->
+<button (click)="Delete(R.id)">Delete</button>
+
+    
+
+</div>
+Recherche 
+<input type="text" [(ngModel)]="rechercher">
+<div *ngFor="let item of Apprs">
+    <div *ngIf="item.surface.toString ()== rechercher || rechercher== ''">
+    <div>id: {{item.id}}</div>
+    <div>appartNum: {{item.appartNum}}</div>
+    <div>floorNum: {{item.floorNum}}</div>
+    <div>surface: {{item.surface}} </div>
+    <div>terrace: {{item.terrace}} </div>
+    <div>surfaceTerrace: {{item.surfaceTerrace}} </div>
+    <div>category: {{item.category}} </div>
+    <div>description: {{item.description}} </div>
+</div>
+
+</div>
+<div *ngIf="msg==false">
+<div>NOT FOUND</div>
+</div>
+

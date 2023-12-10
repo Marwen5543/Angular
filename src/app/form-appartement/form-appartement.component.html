@@ -1,0 +1,84 @@
+<form [formGroup]="apartForm" (ngSubmit)="submitForm()">
+    <div>
+      <label for="appartementNumber">Apartment Number:</label>
+      <input type="text" id="appartementNumber" formControlName="appartementNumber">
+      <div *ngIf="apartForm.get('appartementNumber')?.hasError('required')">
+        Apartment Number is required.
+      </div>
+      <div *ngIf="apartForm.get('appartementNumber')?.hasError('pattern')">
+        Please enter a valid numeric value for Apartment Number.
+      </div>
+    </div>
+  
+    <div>
+      <label for="floorNumber">Floor Number:</label>
+      <input type="text" id="floorNumber" formControlName="floorNumber">
+      <div *ngIf="apartForm.get('floorNumber')?.hasError('required')">
+        Floor Number is required.
+      </div>
+      <div *ngIf="apartForm.get('floorNumber')?.hasError('pattern')">
+        Please enter a valid numeric value for Floor Number.
+      </div>
+    </div>
+  
+    <div>
+      <label for="surface">Surface:</label>
+      <input type="text" id="surface" formControlName="surface">
+      <div *ngIf="apartForm.get('surface')?.hasError('required')">
+        Surface is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="terrace">Terrace:</label>
+      <input type="checkbox" id="terrace" formControlName="terrace">
+      <div *ngIf="apartForm.get('terrace')?.hasError('required')">
+        Terrace is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="surfaceTerrace">Surface Terrace:</label>
+      <input type="text" id="surfaceTerrace" formControlName="surfaceTerrace">
+      <div *ngIf="apartForm.get('surfaceTerrace')?.hasError('required')">
+        Surface Terrace is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="category">Category:</label>
+      <input type="text" id="category" formControlName="category">
+      <div *ngIf="apartForm.get('category')?.hasError('required')">
+        Category is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="apartForm.get('description')?.hasError('required')">
+        Description is required.
+      </div>
+      <div *ngIf="apartForm.get('description')?.hasError('minlength')">
+        Description should have at least 10 characters.
+      </div>
+    </div>
+  
+    <div>
+      <label for="residence">Residence:</label>
+      <input type="text" id="residence" formControlName="residence">
+      <div *ngIf="apartForm.get('residence')?.hasError('required')">
+        Residence is required.
+      </div>
+    </div>
+  
+    <form [formGroup]="apartForm" (ngSubmit)="submitForm()">
+        <!-- Your form fields and error messages -->
+      
+        <div>
+          <button type="submit" [disabled]="apartForm.invalid">Add</button>
+        </div>
+      </form>
+      
+  </form>
+  

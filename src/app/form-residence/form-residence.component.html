@@ -1,0 +1,31 @@
+<form [formGroup]="residenceForm" (ngSubmit)="submitForm()">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="residenceForm?.get('name')?.hasError('required')">
+        Name is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" id="address" formControlName="address">
+      <div *ngIf="residenceForm?.get('address')?.hasError('required')">
+        Address is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="image">Image URL:</label>
+      <input type="text" id="image" formControlName="image">
+      <div *ngIf="residenceForm?.get('image')?.hasError('required')">
+        Image URL is required.
+      </div>
+      <!-- You might want to add additional validation for the image URL -->
+    </div>
+  
+    <div>
+      <button type="submit" [disabled]="residenceForm?.invalid">Add Residence</button>
+    </div>
+  </form>
+  
